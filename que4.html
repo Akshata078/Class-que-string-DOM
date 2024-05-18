@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validation</title>
+    <style>
+        body{
+            background-color: blue;
+        }
+        *{
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h1{
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            color: blue;
+        }
+        .container{
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box{
+            padding: 3rem;
+            height: 30rem;
+            width: 30rem;
+            background-color:white;
+        }
+        .btn{
+            width: 100%;
+            padding: 0.3rem;
+            background-color: blue;
+            color: white;
+        }
+        input{
+            padding: 0.3rem;
+            width: 49%;
+        }
+        label, .btn{
+            font-weight: 600;
+            font-size: larger;
+        }
+        /* .output{
+            background-color: rgb(144, 238, 144);
+            color: green;
+            text-align: center;
+            padding: 1rem;
+        } */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+        <h1>Anagram Checker</h1> <br>
+            <form action="">
+                <label for="">Enter two words to check if they are anagrams : </label> <br><br>
+                <input type="text" placeholder="Enter word 1" class="input1">
+                <input type="text" placeholder="Enter word 2" class="input2">
+                <br><br><br>
+                <button class="btn">Check</button>
+               </form>
+
+               <div class="output"></div>
+        </div>
+    </div>
+
+
+
+    
+    
+<script> 
+
+
+function strAnagramsOrNot(str1,str2){
+let p = false;
+for (let i=0; i<str1.length; i++){
+    let j=0; 
+    while ( j<str1.length){
+        if (str1[i]==str2[j]){
+        p = true;
+        break;
+        }
+        else{
+            p=false;
+           j++;
+        }
+    }
+    if(p==false){
+      return "They are not anagrams";
+      break;
+    }
+}
+if(p !=false){
+    return "They are anagrams";
+}
+}
+
+
+
+
+
+let btn = document.querySelector(".btn");
+let output = document.querySelector(".output");
+
+btn.addEventListener("click",(e)=>{
+    e.preventDefault();
+    let input1 = document.querySelector(".input1");
+    let input2 = document.querySelector(".input2");
+    let a = input1.value;
+    let b = input2.value
+    let s = strAnagramsOrNot(a, b);
+    output.innerHTML = `<div>${s}<div>`
+    output.setAttribute("style","color:green ; background-color: lightgreen ; text-align: center; padding: 0.5rem; margin-top:4rem");
+})
+
+
+    </script>
+    
+</body>
+</html>
