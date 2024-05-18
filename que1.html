@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capitalize first character</title>
+    <style>
+        *{
+            box-sizing: border-box;
+                 
+        }
+        body{
+            background-color: gray;
+        }
+        .container{
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+        .input, .output{
+            height: 25rem;
+            width: 25rem;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .input{
+            background-color: white;
+            padding: 4rem;
+        
+        }
+        input{
+            padding: 1.5rem;
+            width: 100%;
+            background-color: lightgray;
+            border: none;
+            font-size: large;
+        }
+        .output{
+            background-color: black;
+            color: white;
+            padding: 5rem;
+            font-size:xx-large;
+        }
+        .btn{
+            width: 100%;
+            padding: 0.7rem;
+            color: white;
+            background-color: black;
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input">
+            <form action="">
+                <input type="text" placeholder="Enter your input" class="user-input"> <br><br>
+                <button class="btn">Submit</button>
+            </form>
+
+        </div>
+        <div class="output"></div>
+    </div>
+  
+    
+
+
+<script>
+
+function firstCharCapitalize(sentence){
+let a = sentence.split(" ");
+for (let i=0; i<a.length; i++){
+    a[i] = a[i][0].toUpperCase() + a[i].substr(1);
+}
+let p = a.join(" ");
+return p;
+// console.log(p);
+}
+
+    let output = document.querySelector(".output");
+    let button1 = document.querySelector(".btn");
+    button1.addEventListener("click",(event)=>{
+        event.preventDefault();
+        let sentence = document.querySelector(".user-input");
+        // console.log(sentence.value);
+        output.innerHTML =  `<b> Output : </b><br> <br> ${firstCharCapitalize(sentence.value)}`;
+    })
+
+</script>
+
+
+</body>
+</html>
